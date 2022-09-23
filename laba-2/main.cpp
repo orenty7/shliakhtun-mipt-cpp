@@ -16,12 +16,12 @@ public:
 
     Rectangle(Point point): cors(point) {}
     
-    Rectangle operator+(const Rectangle &other) {
+    Rectangle operator+(const Rectangle &other) const {
 	Point res = other.cors.maxx(this->cors).maxy(this->cors);
 	return Rectangle(res);
     }
 
-    Rectangle operator*(const Rectangle &other) {
+    Rectangle operator*(const Rectangle &other) const {
 	Point res = other.cors.minx(this->cors).miny(this->cors);
 	return Rectangle(res);
     }
@@ -107,11 +107,6 @@ Rectangle eval(string expr) {
     return parsePoint(expr);
 }
     
-
-Point read() {
-    string expr;
-    getline(cin, expr);
-}
 
 int main() {
     string expression;
